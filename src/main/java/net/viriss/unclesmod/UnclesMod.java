@@ -15,6 +15,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.viriss.unclesmod.block.ModBlocks;
+import net.viriss.unclesmod.item.ModCreativeModTabs;
 import net.viriss.unclesmod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -32,8 +34,10 @@ public class UnclesMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modEventBus);
+        ModCreativeModTabs.register(modEventBus);
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
@@ -55,7 +59,8 @@ public class UnclesMod
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.RUBY);
+            //event.accept(ModItems.RUBY);
+            //event.accept(ModItems.SAPPHIRE);
         }
     }
 

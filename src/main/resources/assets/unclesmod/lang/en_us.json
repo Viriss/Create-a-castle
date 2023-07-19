@@ -1,4 +1,8 @@
 {
-  "item.unclesmod.ruby": "Ruby"
+  "item.unclesmod.ruby": "Ruby",
+  "item.unclesmod.sapphire": "Sapphire",
 
+  "block.unclesmod.smoky_calcite": "Smoky Calcite",
+
+  "creativetab.unclesmod_tab": "Uncles Mod Tab"
 }
