@@ -23,6 +23,10 @@ public static final RegistryObject<CreativeModeTab> UNCLESMOD_TAB =
                             pOutput.accept(ModItems.SAPPHIRE.get());
 
                             pOutput.accept(ModBlocks.SMOKY_CALCITE.get());
+
+                            pOutput.accept(ModBlocks.LEAGUE_STONE_FRAME.get());
+                            pOutput.accept(ModBlocks.LEAGUE_STONE_KEY.get());
+                            pOutput.accept(ModBlocks.RED_WOOL_STAIRS.get());
                         })
                         .build());
 

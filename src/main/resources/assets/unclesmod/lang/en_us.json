@@ -3,6 +3,10 @@
   "item.unclesmod.sapphire": "Sapphire",
 
   "block.unclesmod.smoky_calcite": "Smoky Calcite",
+  "block.unclesmod.league_stone_key": "League Stone Key",
+  "block.unclesmod.league_stone_frame": "League Stone Frame",
+
+  "block.unclesmod.red_wool_stairs": "Red Wool Stairs",
 
   "creativetab.unclesmod_tab": "Uncles Mod Tab"
 }

@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,23 +20,24 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, UnclesMod.MOD_ID);
 
+
+
     public static final RegistryObject<Block> SMOKY_CALCITE = registerBlock("smoky_calcite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
 
-    /*
-    public static final RegistryObject<Block> League_Stone_Key = registerBlock("league_stone_key",
-            () -> new LeagueStoneKeyBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(4f)), CreativeModeTabs.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> League_Stone_Frame = registerBlock("league_stone_frame",
-            () -> new LeagueStoneFrameBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(4f)), CreativeModeTabs.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> Red_Carpet_Stairs = registerBlock("red_wool_stairs",
+    public static final RegistryObject<Block> LEAGUE_STONE_KEY = registerBlock("league_stone_key",
+            () -> new LeagueStoneKeyBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f)));
+    public static final RegistryObject<Block> LEAGUE_STONE_FRAME = registerBlock("league_stone_frame",
+            () -> new LeagueStoneFrameBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f)
+
+            ));
+    public static final RegistryObject<Block> RED_WOOL_STAIRS = registerBlock("red_wool_stairs",
             () -> new StairBlock(() -> Blocks.RED_WOOL.defaultBlockState(),
-                    BlockBehaviour.Properties.of(Material.WOOL)
-                            .sound(SoundType.WOOL)
-            ),
-            CreativeModeTabs.COLORED_BLOCKS);
-*/
+                    BlockBehaviour.Properties.copy(Blocks.RED_WOOL)
+            ));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
