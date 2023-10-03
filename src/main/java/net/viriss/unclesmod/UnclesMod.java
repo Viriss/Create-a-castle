@@ -1,6 +1,7 @@
 package net.viriss.unclesmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.blockentity.BellRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;

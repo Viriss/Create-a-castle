@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "unclesmod:block/league_stone_key"
-    }
+    "facing=north": { "model": "unclesmod:block/league_stone_key" },
+    "facing=east": { "model": "unclesmod:block/league_stone_key", "y": 90 },
+    "facing=south": { "model": "unclesmod:block/league_stone_key", "y": 180 },
+    "facing=west": { "model": "unclesmod:block/league_stone_key", "y": 270 }
   }
 }
