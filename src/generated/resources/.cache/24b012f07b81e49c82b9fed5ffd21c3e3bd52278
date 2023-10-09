@@ -1,0 +1,4 @@
+// 1.20.1	2023-10-08T23:02:12.7216702	Tags for minecraft:block mod id unclesmod
+3c633cf62218403f00baf1a5b48677b369f1ee3a data/minecraft/tags/blocks/mineable/pickaxe.json
+fa20cc4b6d1344542bb430af0539c5bc902db5f2 data/minecraft/tags/blocks/needs_iron_tool.json
+5398e1d232216cadd0d20d832ff34a03ea3f2dba data/minecraft/tags/blocks/walls.json
