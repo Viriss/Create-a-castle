@@ -6,6 +6,10 @@
   "block.unclesmod.pinkstone": "Pinkstone",
   "block.unclesmod.gilded_pinkstone": "Gilded Pinkstone",
   "block.unclesmod.gilded_edge_pinkstone": "Gilded Edge Pinkstone",
+  "block.unclesmod.purestone": "Purestone",
+  "block.unclesmod.gilded_purestone": "Gilded Purestone",
+  "block.unclesmod.gilded_edge_purestone": "Gilded Edge Purestone",
+  "block.unclesmod.slate": "Slate",
   "block.unclesmod.slate_brick": "Slate Brick",
   "block.unclesmod.slate_brick_stairs": "Slate Brick Stairs",
   "block.unclesmod.slate_brick_slab": "Slate Brick Slab",
@@ -15,7 +19,7 @@
 
   "block.unclesmod.red_wool_stairs": "Red Wool Stairs",
   "block.unclesmod.blue_wool_stairs": "Blue Wool Stairs",
-  "block.unclesmod.blue_wool_stairs": "Gold Stairs",
+  "block.unclesmod.gold_stairs": "Gold Stairs",
 
   "creativetab.unclesmod_tab": "Uncles Mod Tab"
 }

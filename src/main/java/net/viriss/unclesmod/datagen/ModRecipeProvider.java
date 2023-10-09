@@ -23,16 +23,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
-        /*
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.LEAGUE_STONE_FRAME.get())
                 .pattern("ccc")
                 .pattern("cgc")
                 .pattern("ccc")
-                .define("c", Blocks.CALCITE)
-                .define("g", Items.GOLD_INGOT)
+                .define('c', Blocks.CALCITE)
+                .define('g', Items.GOLD_INGOT)
                 .unlockedBy(getHasName(Blocks.CALCITE), has(Blocks.CALCITE))
                 .save(pWriter);
-         */
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

@@ -26,6 +26,10 @@ public static final RegistryObject<CreativeModeTab> UNCLESMOD_TAB =
                             pOutput.accept(ModBlocks.PINKSTONE.get());
                             pOutput.accept(ModBlocks.GILDED_PINKSTONE.get());
                             pOutput.accept(ModBlocks.GILDED_EDGE_PINKSTONE.get());
+                            pOutput.accept(ModBlocks.PURESTONE.get());
+                            pOutput.accept(ModBlocks.GILDED_PURESTONE.get());
+                            pOutput.accept(ModBlocks.GILDED_EDGE_PURESTONE.get());
+                            pOutput.accept(ModBlocks.SLATE.get());
                             pOutput.accept(ModBlocks.SLATE_BRICK.get());
                             pOutput.accept(ModBlocks.SLATE_BRICK_WALL.get());
                             pOutput.accept(ModBlocks.SLATE_BRICK_SLAB.get());

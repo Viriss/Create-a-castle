@@ -2,7 +2,7 @@
   "variants": {
     "": [
       {
-      "model": "unclesmod:block/slate_brick", "weight": 50
+        "model": "unclesmod:block/slate_brick", "weight": 50
       },
       {
         "model": "unclesmod:block/slate_brick_1", "weight": 100

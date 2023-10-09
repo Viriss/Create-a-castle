@@ -24,6 +24,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RUBY);
         simpleItem(ModItems.SAPPHIRE);
 
+        //evenSimplerBlockItem(ModBlocks.PINKSTONE);
+        //evenSimplerBlockItem(ModBlocks.GILDED_PINKSTONE);
+        //evenSimplerBlockItem(ModBlocks.GILDED_EDGE_PINKSTONE);
+        //evenSimplerBlockItem(ModBlocks.PURESTONE);
+        //evenSimplerBlockItem(ModBlocks.GILDED_PURESTONE);
+        //evenSimplerBlockItem(ModBlocks.GILDED_EDGE_PURESTONE);
+        //evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_FRAME);
+        evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_KEY);
+
         evenSimplerBlockItem(ModBlocks.RED_WOOL_STAIRS);
         evenSimplerBlockItem(ModBlocks.BLUE_WOOL_STAIRS);
         evenSimplerBlockItem(ModBlocks.GOLD_STAIRS);
@@ -41,7 +50,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(UnclesMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
-
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), modLoc("block/fence_inventory"))

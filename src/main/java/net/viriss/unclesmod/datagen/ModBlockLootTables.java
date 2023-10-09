@@ -22,6 +22,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.PINKSTONE.get());
         this.dropSelf(ModBlocks.GILDED_PINKSTONE.get());
         this.dropSelf(ModBlocks.GILDED_EDGE_PINKSTONE.get());
+        this.dropSelf(ModBlocks.PURESTONE.get());
+        this.dropSelf(ModBlocks.GILDED_PURESTONE.get());
+        this.dropSelf(ModBlocks.GILDED_EDGE_PURESTONE.get());
+        this.dropSelf(ModBlocks.SLATE.get());
         this.dropSelf(ModBlocks.SLATE_BRICK.get());
         this.dropSelf(ModBlocks.SLATE_BRICK_STAIRS.get());
         this.add(ModBlocks.SLATE_BRICK_SLAB.get(),

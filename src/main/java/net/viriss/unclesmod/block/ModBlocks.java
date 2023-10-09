@@ -27,6 +27,14 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
     public static final RegistryObject<Block> GILDED_EDGE_PINKSTONE = registerBlock("gilded_edge_pinkstone",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> PURESTONE = registerBlock("purestone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> GILDED_PURESTONE = registerBlock("gilded_purestone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> GILDED_EDGE_PURESTONE = registerBlock("gilded_edge_purestone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
+    public static final RegistryObject<Block> SLATE = registerBlock("slate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SLATE_BRICK = registerBlock("slate_brick",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     public static final RegistryObject<Block> SLATE_BRICK_STAIRS = registerBlock("slate_brick_stairs",
