@@ -38,6 +38,11 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.RED_WOOL)
             ));
 
+    public static final RegistryObject<Block> BLUE_WOOL_STAIRS = registerBlock("blue_wool_stairs",
+            () -> new StairBlock(() -> Blocks.BLUE_WOOL.defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.BLUE_WOOL)
+            ));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
