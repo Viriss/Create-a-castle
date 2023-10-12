@@ -32,5 +32,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
 
+        generator.addProvider(event.includeServer(), new ModLangProvider(packOutput, "en_us"));
+
     }
 }

@@ -3,9 +3,11 @@ package net.viriss.unclesmod.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraftforge.common.Tags;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
+import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
@@ -27,9 +29,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.LEAGUE_STONE_FRAME.get(),
                      ModBlocks.LEAGUE_STONE_KEY.get());
 
-        this.tag(BlockTags.WALLS)
-                .add(ModBlocks.SLATE_BRICK_WALL.get());
-
+        for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                if(rb.getId().getPath().equals(b.toString() + "_wall")){
+                    this.tag(BlockTags.WALLS)
+                            .add(rb.get());
+                }
+            }
+        }
         //fence
         //fence gate
     }

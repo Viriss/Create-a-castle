@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +22,7 @@ public static final RegistryObject<CreativeModeTab> UNCLESMOD_TAB =
                         .displayItems((pParameters, pOutput) -> {
                             pOutput.accept(ModItems.RUBY.get());
                             pOutput.accept(ModItems.SAPPHIRE.get());
+                            pOutput.accept(ModItems.LANTERN_FLOWER_SEED.get());
 
                             pOutput.accept(ModBlocks.SMOKY_CALCITE.get());
                             pOutput.accept(ModBlocks.PINKSTONE.get());
@@ -31,14 +33,22 @@ public static final RegistryObject<CreativeModeTab> UNCLESMOD_TAB =
                             pOutput.accept(ModBlocks.GILDED_EDGE_PURESTONE.get());
                             pOutput.accept(ModBlocks.SLATE.get());
                             pOutput.accept(ModBlocks.SLATE_BRICK.get());
-                            pOutput.accept(ModBlocks.SLATE_BRICK_WALL.get());
                             pOutput.accept(ModBlocks.SLATE_BRICK_SLAB.get());
+                            pOutput.accept(ModBlocks.SLATE_BRICK_STAIRS.get());
+                            pOutput.accept(ModBlocks.SLATE_BRICK_WALL.get());
+                            pOutput.accept(ModBlocks.SLATE_SLAB.get());
+                            pOutput.accept(ModBlocks.SLATE_STAIRS.get());
+                            pOutput.accept(ModBlocks.SLATE_WALL.get());
 
                             pOutput.accept(ModBlocks.LEAGUE_STONE_FRAME.get());
                             pOutput.accept(ModBlocks.LEAGUE_STONE_KEY.get());
-                            pOutput.accept(ModBlocks.RED_WOOL_STAIRS.get());
-                            pOutput.accept(ModBlocks.BLUE_WOOL_STAIRS.get());
+                            pOutput.accept(ModBlocks.GOLD_SLAB.get());
                             pOutput.accept(ModBlocks.GOLD_STAIRS.get());
+
+                            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                                pOutput.accept(rb.get());
+                            }
+
                         })
                         .build());
 
