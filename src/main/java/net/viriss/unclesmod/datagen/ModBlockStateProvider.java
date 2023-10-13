@@ -9,6 +9,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 import net.viriss.unclesmod.block.custom.LanternFlowerCropBlock;
@@ -24,10 +25,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.SMOKY_CALCITE);
-        blockWithItem(ModBlocks.PINKSTONE);
         blockWithItem(ModBlocks.GILDED_PINKSTONE);
         blockWithItem(ModBlocks.GILDED_EDGE_PINKSTONE);
-        blockWithItem(ModBlocks.PURESTONE);
         blockWithItem(ModBlocks.GILDED_PURESTONE);
         blockWithItem(ModBlocks.GILDED_EDGE_PURESTONE);
         blockWithItem(ModBlocks.LEAGUE_STONE_FRAME);
@@ -45,9 +44,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         slabBlock((SlabBlock) ModBlocks.SLATE_BRICK_SLAB.get(), blockTexture(ModBlocks.SLATE_BRICK.get()), blockTexture(ModBlocks.SLATE_BRICK.get()));
         stairsBlock((StairBlock) ModBlocks.SLATE_BRICK_STAIRS.get(), blockTexture(ModBlocks.SLATE_BRICK.get()));
 
-        stairsBlock((StairBlock) ModBlocks.GOLD_STAIRS.get(), blockTexture(Blocks.GOLD_BLOCK));
-        slabBlock((SlabBlock) ModBlocks.GOLD_SLAB.get(), blockTexture(Blocks.GOLD_BLOCK), blockTexture(Blocks.GOLD_BLOCK));
-
 
         for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
@@ -59,6 +55,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 }
                 if(rb.getId().getPath().equals(b.toString() + "_wall")){
                     wallBlock((WallBlock) rb.get(), blockTexture(b.BaseBlock));
+                }
+            }
+        }
+
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                ResourceLocation rl = new ResourceLocation(UnclesMod.MOD_ID, "block/" + b.toString());
+                if(rb.getId().getPath().equals(b.toString())){
+                    blockWithItem(rb);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_stairs")){
+                    stairsBlock((StairBlock) rb.get(), rl);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_slab")){
+                    slabBlock((SlabBlock) rb.get(), rl, rl);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_wall")){
+                    wallBlock((WallBlock) rb.get(), rl);
                 }
             }
         }

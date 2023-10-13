@@ -8,9 +8,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
+import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 
@@ -35,22 +37,47 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('g', Items.GOLD_INGOT)
                 .unlockedBy(getHasName(Blocks.CALCITE), has(Blocks.CALCITE))
                 .save(pWriter);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PINKSTONE.get(), 8)
-                .pattern("sss")
-                .pattern("sds")
-                .pattern("sss")
-                .define('s', Blocks.STONE)
-                .define('d', Items.PINK_DYE)
-                .unlockedBy(getHasName(Items.PINK_DYE), has(Items.PINK_DYE))
-                .save(pWriter);
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PURESTONE.get(), 8)
-                .pattern("sss")
-                .pattern("sds")
-                .pattern("sss")
-                .define('s', Blocks.STONE)
-                .define('d', Items.WHITE_DYE)
-                .unlockedBy(getHasName(Items.WHITE_DYE), has(Items.WHITE_DYE))
-                .save(pWriter);
+
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+
+                if(rb.getId().getPath().equals(b.toString())){
+                    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 8)
+                            .pattern("sss")
+                            .pattern("sds")
+                            .pattern("sss")
+                            .define('s', Blocks.STONE)
+                            .define('d', b.Dye)
+                            .unlockedBy(getHasName(b.Dye), has(b.Dye))
+                            .save(pWriter);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_stairs")){
+                    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 4)
+                            .pattern("s  ")
+                            .pattern("ss ")
+                            .pattern("sss")
+                            .define('s', rb.get())
+                            .unlockedBy(getHasName(rb.get()), has(rb.get()))
+                            .save(pWriter);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_slab")){
+                    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 6)
+                            .pattern("sss")
+                            .define('s', rb.get())
+                            .unlockedBy(getHasName(rb.get()), has(rb.get()))
+                            .save(pWriter);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_wall")){
+                    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 6)
+                            .pattern("sss")
+                            .pattern("sss")
+                            .define('s', rb.get())
+                            .unlockedBy(getHasName(rb.get()), has(rb.get()))
+                            .save(pWriter);
+                }
+            }
+        }
+
 
         //SingleItemRecipeBuilder sc = stonecutting(ModBlocks.SLATE.get().defaultBlockState(), RecipeCategory.BUILDING_BLOCKS, ModBlocks.SLATE_BRICK.get());
 

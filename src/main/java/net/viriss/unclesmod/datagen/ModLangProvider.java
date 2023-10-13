@@ -19,7 +19,7 @@ public class ModLangProvider extends LanguageProvider {
         this.add("creativetab.unclesmod_tab", "Uncles Mod Tab");
 
         for(RegistryObject<Item> ri : ModItems.ITEMS.getEntries()){
-            this.addItem(ri, WordUtils.capitalize(ri.getId().getPath().replace('_', ' ')));
+           this.addItem(ri, WordUtils.capitalize(ri.getId().getPath().replace('_', ' ')));
         }
 /*
         for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){

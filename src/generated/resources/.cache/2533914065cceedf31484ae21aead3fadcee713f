@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-11T21:26:09.3685526	Item Models: unclesmod
+// 1.20.1	2023-10-12T23:09:09.7219238	Item Models: unclesmod
 48737c55b70846c8fa77b7f7d5479416c7ee6e43 assets/unclesmod/models/item/black_concrete_slab.json
 045b0225789a3eddda32f412cfcecc3cb286f86b assets/unclesmod/models/item/black_concrete_stairs.json
 57404862ace35b88b6fabaa4345c6988d361534e assets/unclesmod/models/item/black_concrete_wall.json
@@ -35,8 +35,8 @@ e2da423d78754634b7b1168c889e5d8d320c9254 assets/unclesmod/models/item/cyan_terra
 28c0e80e0e0e10a1cf945ea20ce19ec730539e83 assets/unclesmod/models/item/cyan_wool_slab.json
 8d28c9b0366774b88fc69ba80f3eaf511c80da8b assets/unclesmod/models/item/cyan_wool_stairs.json
 5cef9becac644fc244791b1e03b351ce7e5cc36b assets/unclesmod/models/item/cyan_wool_wall.json
-1dc30765afc38aab6f77a97f6038bcb00c83ac17 assets/unclesmod/models/item/gold_slab.json
-c0d471c75c10e4346bbf69769ef32c7e71e07ef9 assets/unclesmod/models/item/gold_stairs.json
+330db683d25c5186ab5a445167799b245e1f1fbd assets/unclesmod/models/item/gold_block_slab.json
+dfe8cdc4310c618f0d02194c1c204595c7397c3a assets/unclesmod/models/item/gold_block_stairs.json
 ea1d3d8b2cf9d2db033476f701f8dc8e47c45d50 assets/unclesmod/models/item/gray_concrete_slab.json
 9c51e7cdd63cb5b3e2f4dbfed2d52f38f7e509f3 assets/unclesmod/models/item/gray_concrete_stairs.json
 9cd1b682af79d39998bee07e18c55fdb76336a6c assets/unclesmod/models/item/gray_concrete_wall.json
@@ -102,6 +102,10 @@ cdc5ba74324fdfb3ad84cabee099bca5a60e5d87 assets/unclesmod/models/item/orange_ter
 b9a95550f7e537052752d2e8bf72ee753ccda86c assets/unclesmod/models/item/orange_wool_slab.json
 784520cec7107e093d13ffcd898345cd8ee5b160 assets/unclesmod/models/item/orange_wool_stairs.json
 bd53271c9a457332ebe926ae42d20ae19b5204f8 assets/unclesmod/models/item/orange_wool_wall.json
+f67e8ace634af4339dd91c183758f21ad1042323 assets/unclesmod/models/item/pinkstone.json
+d2756c4fe5188d6ef1571e519ecb63d07f7f26ac assets/unclesmod/models/item/pinkstone_slab.json
+45f0c124e460201ca8d8fc8720e575014c0f2f3f assets/unclesmod/models/item/pinkstone_stairs.json
+600c3aea8c696aabbe9fa8c72ea958c322b9aeee assets/unclesmod/models/item/pinkstone_wall.json
 e0a010bf5cfae6174e5637ada6b4592bce04bbdf assets/unclesmod/models/item/pink_concrete_slab.json
 eea3c4320c5a99a90289eb5ded1f937e422c8fc8 assets/unclesmod/models/item/pink_concrete_stairs.json
 a7c6e7a09718f97ce5ffa0f00ff9ee32616cac05 assets/unclesmod/models/item/pink_concrete_wall.json
@@ -111,6 +115,10 @@ d52eda596c64824e0da4af6f99cb1d1a01605eeb assets/unclesmod/models/item/pink_terra
 9878f0d8d373a77f3b80fe5d9f69e89760cd7222 assets/unclesmod/models/item/pink_wool_slab.json
 121f2e41f33adbb60b6f4c4dde81bf4ddf253979 assets/unclesmod/models/item/pink_wool_stairs.json
 2a66c3e3c8f499f7def3c1d8e8646b893662a03d assets/unclesmod/models/item/pink_wool_wall.json
+b43997a68979fe6a7269f80c148c9d56d7af7559 assets/unclesmod/models/item/purestone.json
+e82a2a1fcbdd834bbb8febba016c3c3d56e4a835 assets/unclesmod/models/item/purestone_slab.json
+7bcd1c75b1f415e265ec9748a00e607286ac2224 assets/unclesmod/models/item/purestone_stairs.json
+54d08d2cdbe3855307760ec97887fc3b29f1993b assets/unclesmod/models/item/purestone_wall.json
 0e8a04a89b9196736025cd59e2e5bfd3037fd481 assets/unclesmod/models/item/purple_concrete_slab.json
 7359873e7a60887561027a1a3a717a6bfdb71194 assets/unclesmod/models/item/purple_concrete_stairs.json
 a4af617fefda8ae2359d3a765bf4c4ee554691cb assets/unclesmod/models/item/purple_concrete_wall.json

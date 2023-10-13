@@ -4,9 +4,14 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.registries.RegistryObject;
+import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.block.ModBlocks;
 import net.viriss.unclesmod.block.custom.LanternFlowerCropBlock;
 import net.viriss.unclesmod.item.ModItems;
@@ -22,10 +27,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.SMOKY_CALCITE.get());
-        this.dropSelf(ModBlocks.PINKSTONE.get());
         this.dropSelf(ModBlocks.GILDED_PINKSTONE.get());
         this.dropSelf(ModBlocks.GILDED_EDGE_PINKSTONE.get());
-        this.dropSelf(ModBlocks.PURESTONE.get());
         this.dropSelf(ModBlocks.GILDED_PURESTONE.get());
         this.dropSelf(ModBlocks.GILDED_EDGE_PURESTONE.get());
         this.dropSelf(ModBlocks.SLATE.get());
@@ -40,12 +43,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SLATE_BRICK_WALL.get());
         this.dropSelf(ModBlocks.LEAGUE_STONE_FRAME.get());
         this.dropSelf(ModBlocks.LEAGUE_STONE_KEY.get());
-        //this.dropSelf(ModBlocks.RED_WOOL_SLAB.get());
-        //this.dropSelf(ModBlocks.RED_WOOL_STAIRS.get());
-        //this.dropSelf(ModBlocks.BLUE_WOOL_SLAB.get());
-        //this.dropSelf(ModBlocks.BLUE_WOOL_STAIRS.get());
-        this.dropSelf(ModBlocks.GOLD_SLAB.get());
-        this.dropSelf(ModBlocks.GOLD_STAIRS.get());
 
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.LANTERN_FLOWER_CROP.get())
@@ -53,8 +50,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.LANTERN_FLOWER_CROP.get(), createCropDrops(ModBlocks.LANTERN_FLOWER_CROP.get(), ModItems.LANTERN_FLOWER_SEED.get(),
                 ModItems.LANTERN_FLOWER_SEED.get(), lootitemcondition$builder));
 
-        for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()) {
-            this.dropSelf(rb.get());
+        for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                if(rb.getId().getPath().startsWith(b.toString())){
+                    this.dropSelf(rb.get());
+                }
+            }
+        }
+
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                if(rb.getId().getPath().startsWith(b.toString())){
+                    this.dropSelf(rb.get());
+                }
+            }
         }
 
     }

@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "unclesmod:block/gold_slab"
+      "model": "unclesmod:block/gold_block_slab"
     },
     "type=double": {
       "model": "minecraft:block/gold_block"
     },
     "type=top": {
-      "model": "unclesmod:block/gold_slab_top"
+      "model": "unclesmod:block/gold_block_slab_top"
     }
   }
 }

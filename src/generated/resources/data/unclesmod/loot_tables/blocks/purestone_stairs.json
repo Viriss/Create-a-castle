@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "unclesmod:gold_stairs"
+          "name": "unclesmod:purestone_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "unclesmod:blocks/gold_stairs"
+  "random_sequence": "unclesmod:blocks/purestone_stairs"
 }

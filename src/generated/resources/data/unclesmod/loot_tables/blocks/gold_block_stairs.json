@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "unclesmod:gold_slab"
+          "name": "unclesmod:gold_block_stairs"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "unclesmod:blocks/gold_slab"
+  "random_sequence": "unclesmod:blocks/gold_block_stairs"
 }
