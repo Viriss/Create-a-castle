@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "unclesmod:block/gilded_rosestone",
+    "side": "unclesmod:block/gilded_rosestone",
+    "top": "unclesmod:block/gilded_rosestone"
+  }
+}

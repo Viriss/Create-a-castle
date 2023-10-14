@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unclesmod:timestone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_timestone_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unclesmod:timestone_wall"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_timestone_wall",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unclesmod:timestone_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

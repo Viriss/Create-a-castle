@@ -48,6 +48,22 @@
     "unclesmod:black_terracotta_wall",
     "unclesmod:gray_terracotta_wall",
     "unclesmod:light_gray_terracotta_wall",
-    "unclesmod:white_terracotta_wall"
+    "unclesmod:white_terracotta_wall",
+    "unclesmod:bloodstone_wall",
+    "unclesmod:warmstone_wall",
+    "unclesmod:sunstone_wall",
+    "unclesmod:lifestone_wall",
+    "unclesmod:gardenstone_wall",
+    "unclesmod:timestone_wall",
+    "unclesmod:skystone_wall",
+    "unclesmod:waterstone_wall",
+    "unclesmod:rosestone_wall",
+    "unclesmod:royalstone_wall",
+    "unclesmod:pinkstone_wall",
+    "unclesmod:umberstone_wall",
+    "unclesmod:purestone_wall",
+    "unclesmod:oldstone_wall",
+    "unclesmod:ashstone_wall",
+    "unclesmod:inkstone_wall"
   ]
 }

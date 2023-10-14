@@ -7,7 +7,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +31,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                      ModBlocks.LEAGUE_STONE_KEY.get());
 
         for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                if(rb.getId().getPath().equals(b.toString() + "_wall")){
+                    this.tag(BlockTags.WALLS)
+                            .add(rb.get());
+                }
+            }
+        }
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
                 if(rb.getId().getPath().equals(b.toString() + "_wall")){
                     this.tag(BlockTags.WALLS)

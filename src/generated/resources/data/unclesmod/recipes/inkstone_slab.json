@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:inkstone_slab"
+    }
+  },
+  "pattern": [
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:inkstone_slab"
+  },
+  "show_notification": true
+}

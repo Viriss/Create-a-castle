@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/gilded_royalstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/gilded_royalstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/gilded_royalstone_slab_top"
+    }
+  }
+}

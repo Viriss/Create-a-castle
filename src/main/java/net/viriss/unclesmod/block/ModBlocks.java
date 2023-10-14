@@ -8,9 +8,10 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
-import net.viriss.unclesmod.StainedStoneBlockGenEnum;
+import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
+import net.viriss.unclesmod.block.custom.GildedEdgeBlock;
 import net.viriss.unclesmod.block.custom.LanternFlowerCropBlock;
 import net.viriss.unclesmod.block.custom.LeagueStoneFrameBlock;
 import net.viriss.unclesmod.block.custom.LeagueStoneKeyBlock;
@@ -24,16 +25,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SMOKY_CALCITE = registerBlock("smoky_calcite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
-    public static final RegistryObject<Block> GILDED_PINKSTONE = registerBlock("gilded_pinkstone",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
-    public static final RegistryObject<Block> GILDED_EDGE_PINKSTONE = registerBlock("gilded_edge_pinkstone",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
-    public static final RegistryObject<Block> GILDED_PURESTONE = registerBlock("gilded_purestone",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
-    public static final RegistryObject<Block> GILDED_EDGE_PURESTONE = registerBlock("gilded_edge_purestone",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIORITE)));
     public static final RegistryObject<Block> SLATE = registerBlock("slate",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
     public static final RegistryObject<Block> SLATE_STAIRS = registerBlock("slate_stairs",
             () -> new StairBlock(() -> ModBlocks.SLATE.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.STONE)));
@@ -55,6 +49,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> LEAGUE_STONE_KEY = registerBlock("league_stone_key",
             () -> new LeagueStoneKeyBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(4f)));
+
+//    public static final RegistryObject<Block> GILDED_EDGE_LIFESTONE = registerBlock("gilded_edge_lifestone",
+//            () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+//                    .strength(4f)));
+
     public static final RegistryObject<Block> LEAGUE_STONE_FRAME = registerBlock("league_stone_frame",
             () -> new LeagueStoneFrameBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(4f)
@@ -68,21 +67,35 @@ public class ModBlocks {
                         .noCollission()
                         .noCollission()));
 
-    public static void AddStainedStoneBlocks() {
+    private static void AddStainedStoneBlocks() {
         for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
             String name = b.toString();
-            registerBlock(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            AddStainedSet(name, b);
+            AddStainedSet(name + "_brick", b);
+            AddStainedSet("gilded_" + name, b);
+
+            registerBlock("gilded_edge_" + name, () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(4f)));
+        }
+    }
+    private static void AddStainedSet(String name, StainedStoneBlockGenEnum b) {
+        registerBlock(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+        if (b.isStairs()) {
             registerBlock(name + "_stairs",
                     () -> new StairBlock(() -> Blocks.STONE_STAIRS.defaultBlockState(),
                             BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
+        }
+        if (b.isSlab()) {
             registerBlock(name + "_slab",
                     () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
+        }
+        if (b.isWall()) {
             registerBlock(name + "_wall",
                     () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
         }
+
     }
 
-    public static void AddExtendedVanillaBlocks(){
+    private static void AddExtendedVanillaBlocks(){
          for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
             String name = b.toString();
             if (b.isStairs()) {

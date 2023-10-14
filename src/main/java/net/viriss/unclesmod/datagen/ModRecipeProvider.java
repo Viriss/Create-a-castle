@@ -6,19 +6,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
-import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
-import net.viriss.unclesmod.StainedStoneBlockGenEnum;
+import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 

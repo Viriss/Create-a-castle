@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/bloodstone_brick_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/bloodstone_brick"
+    },
+    "type=top": {
+      "model": "unclesmod:block/bloodstone_brick_slab_top"
+    }
+  }
+}

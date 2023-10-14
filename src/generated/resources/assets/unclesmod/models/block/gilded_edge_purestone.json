@@ -1,6 +1,13 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "unclesmod:block/gilded_edge_purestone"
+    "all": "unclesmod:block/gilded_edge_purestone",
+    "down": "unclesmod:block/gilded_edge_purestone",
+    "east": "unclesmod:block/gilded_edge_purestone_left",
+    "north": "unclesmod:block/gilded_edge_purestone_right",
+    "particle": "unclesmod:block/gilded_edge_purestone",
+    "south": "unclesmod:block/gilded_edge_purestone_right",
+    "up": "unclesmod:block/gilded_edge_purestone",
+    "west": "unclesmod:block/gilded_edge_purestone_left"
   }
 }

@@ -4,15 +4,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.StairBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.viriss.unclesmod.ExtendedVanillaBlockGenEnum;
-import net.viriss.unclesmod.StainedStoneBlockGenEnum;
+import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
+import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
 import net.viriss.unclesmod.item.ModItems;
@@ -30,6 +28,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_KEY);
 
+        //evenSimplerBlockItem(ModBlocks.GILDED_EDGE_LIFESTONE);
+
         evenSimplerBlockItem(ModBlocks.SLATE_SLAB);
         evenSimplerBlockItem(ModBlocks.SLATE_STAIRS);
         wallItem(ModBlocks.SLATE_WALL, ModBlocks.SLATE);
@@ -37,37 +37,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.SLATE_BRICK_STAIRS);
         wallItem(ModBlocks.SLATE_BRICK_WALL, ModBlocks.SLATE_BRICK);
 
-        for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
-            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
-                if(rb.getId().getPath().equals(b.toString() + "_stairs")){
-                    evenSimplerBlockItem(rb);
-                }
-                if(rb.getId().getPath().equals(b.toString() + "_slab")){
-                    evenSimplerBlockItem(rb);
-                }
-                if(rb.getId().getPath().equals(b.toString() + "_wall")){
-                    wallItem(rb, b.BaseBlock);
-                }
-            }
-
-        }
-        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
-            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
-                if(rb.getId().getPath().equals(b.toString())){
-                    evenSimplerBlockItem(rb);
-                }
-                if(rb.getId().getPath().equals(b.toString() + "_stairs")){
-                    evenSimplerBlockItem(rb);
-                }
-                if(rb.getId().getPath().equals(b.toString() + "_slab")){
-                    evenSimplerBlockItem(rb);
-                }
-                if(rb.getId().getPath().equals(b.toString() + "_wall")){
-                    wallItem(rb);
-                }
-            }
-
-        }
+        AddExtendedVanillaBlockItems();
+        AddStainedStoneBlockItems();
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){
@@ -109,5 +80,50 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(UnclesMod.MOD_ID, "item/"+item.getId().getPath()));
+    }
+
+    private void AddExtendedVanillaBlockItems() {
+        for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                if(rb.getId().getPath().equals(b.toString() + "_stairs")){
+                    evenSimplerBlockItem(rb);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_slab")){
+                    evenSimplerBlockItem(rb);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_wall")){
+                    wallItem(rb, b.BaseBlock);
+                }
+            }
+
+        }
+    }
+    private void AddStainedStoneBlockItems() {
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                AddStainedSet(b.toString(), b, rb);
+                AddStainedSet(b + "_brick", b, rb);
+                AddStainedSet("gilded_" + b, b, rb);
+
+                if(rb.getId().getPath().equals("gilded_edge_" + b)){
+                    evenSimplerBlockItem(rb);
+                }
+
+            }
+        }
+    }
+    private void AddStainedSet(String name, StainedStoneBlockGenEnum b, RegistryObject<Block> rb) {
+        if(rb.getId().getPath().equals(name)){
+            evenSimplerBlockItem(rb);
+        }
+        if(rb.getId().getPath().equals(name + "_stairs")){
+            evenSimplerBlockItem(rb);
+        }
+        if(rb.getId().getPath().equals(name + "_slab")){
+            evenSimplerBlockItem(rb);
+        }
+        if(rb.getId().getPath().equals(name + "_wall")){
+            wallItem(rb);
+        }
     }
 }
