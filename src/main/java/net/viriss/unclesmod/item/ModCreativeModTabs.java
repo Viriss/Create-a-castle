@@ -21,7 +21,9 @@ public static final RegistryObject<CreativeModeTab> UNCLESMOD_TAB =
                         .title(Component.translatable("creativetab.unclesmod_tab"))
                         .displayItems((pParameters, pOutput) -> {
                             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
-                                pOutput.accept(rb.get());
+                                if (!rb.getKey().toString().contains("potted")) {
+                                    pOutput.accept(rb.get());
+                                }
                             }
                         })
                         .build());

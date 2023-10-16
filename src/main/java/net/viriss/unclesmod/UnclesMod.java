@@ -1,8 +1,12 @@
 package net.viriss.unclesmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BellRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -39,6 +43,7 @@ public class UnclesMod
 
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::clientSetup);
         MinecraftForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
@@ -48,9 +53,15 @@ public class UnclesMod
  //       ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
+    private void clientSetup(final FMLClientSetupEvent event) {
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.LANTERN_FLOWER.get(), RenderType.translucent());
+    }
+
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.LANTERN_FLOWER.getId(), ModBlocks.POTTED_LANTERN_FLOWER);
+        });
     }
 
     // Add the example block item to the building blocks tab

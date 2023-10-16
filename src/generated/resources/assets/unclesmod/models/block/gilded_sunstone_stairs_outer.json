@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/gilded_sunstone",
-    "side": "unclesmod:block/gilded_sunstone",
-    "top": "unclesmod:block/gilded_sunstone"
-  }
-}

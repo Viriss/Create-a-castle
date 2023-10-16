@@ -24,8 +24,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         this.dropSelf(ModBlocks.SMOKY_CALCITE.get());
+        this.dropSelf(ModBlocks.BLUE_GLAZED_TERRACOTTA_DIAMOND_TILE.get());
+        this.dropSelf(ModBlocks.BLUE_GLAZED_TERRACOTTA_CHEVRON_TILE.get());
+        this.dropSelf(ModBlocks.BLACK_GLAZED_TERRACOTTA_DIAMOND_TILE.get());
+        this.dropSelf(ModBlocks.BLACK_GLAZED_TERRACOTTA_CHEVRON_TILE.get());
         this.dropSelf(ModBlocks.SLATE.get());
-        //this.dropSelf(ModBlocks.GILDED_EDGE_LIFESTONE.get());
         this.dropSelf(ModBlocks.SLATE_STAIRS.get());
         this.add(ModBlocks.SLATE_SLAB.get(),
                 block -> createSlabItemTable(ModBlocks.SLATE_SLAB.get()));
@@ -38,6 +41,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LEAGUE_STONE_FRAME.get());
         this.dropSelf(ModBlocks.LEAGUE_STONE_KEY.get());
 
+        this.dropSelf(ModBlocks.RAIN_FLOWER.get());
+        this.dropSelf(ModBlocks.LANTERN_FLOWER.get());
+        this.add(ModBlocks.POTTED_LANTERN_FLOWER.get(), createPotFlowerItemTable(ModBlocks.LANTERN_FLOWER.get()));
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.LANTERN_FLOWER_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LanternFlowerCropBlock.AGE, LanternFlowerCropBlock.MAX_AGE));
@@ -46,7 +52,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         AddExtendedVanillaBlocks();
         AddStainedStoneBlocks();
-        //add gilded
     }
 
     private void AddExtendedVanillaBlocks() {
@@ -67,6 +72,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 if(rb.getId().getPath().startsWith(name)){
                     this.dropSelf(rb.get());
                 }
+                if(rb.getId().getPath().startsWith("chiseled_" + name)){
+                    this.dropSelf(rb.get());
+                }
+
                 if(rb.getId().getPath().startsWith(name + "_brick")){
                     this.dropSelf(rb.get());
                 }

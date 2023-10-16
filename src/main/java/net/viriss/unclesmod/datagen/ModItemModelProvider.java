@@ -25,11 +25,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RUBY);
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.LANTERN_FLOWER_SEED);
+        simpleItemFromBlock(ModBlocks.LANTERN_FLOWER);
+
+        simpleItemFromBlock(ModBlocks.RAIN_FLOWER);
 
         evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_KEY);
-
-        //evenSimplerBlockItem(ModBlocks.GILDED_EDGE_LIFESTONE);
-
         evenSimplerBlockItem(ModBlocks.SLATE_SLAB);
         evenSimplerBlockItem(ModBlocks.SLATE_STAIRS);
         wallItem(ModBlocks.SLATE_WALL, ModBlocks.SLATE);
@@ -46,12 +46,31 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(UnclesMod.MOD_ID,"item/" +item.getId().getPath()));
     }
+    private ItemModelBuilder simpleItemFromBlock(RegistryObject<Block> item){
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(UnclesMod.MOD_ID,"item/" +item.getId().getPath()));
+    }
     public void evenSimplerBlockItem(RegistryObject<Block> block) {
         this.withExistingParent(UnclesMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
-
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture",  new ResourceLocation(UnclesMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath().replace("_fence", "")));
+    }
+    public void zz_fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), modLoc("block/fence_inventory"))
+                .texture("texture", new ResourceLocation(UnclesMod.MOD_ID, "block/"+ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    }
+    public void fenceItem(RegistryObject<Block> block, Block baseBlock) {
+        String name = baseBlock.getDescriptionId();
+        name = name.substring(name.lastIndexOf(".") + 1).trim();
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
+                .texture("texture", "minecraft:block/" + name);
+
+    }
+    public void fenceGateItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), modLoc("block/fence_inventory"))
                 .texture("texture", new ResourceLocation(UnclesMod.MOD_ID, "block/"+ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
@@ -94,6 +113,13 @@ public class ModItemModelProvider extends ItemModelProvider {
                 if(rb.getId().getPath().equals(b.toString() + "_wall")){
                     wallItem(rb, b.BaseBlock);
                 }
+                if(rb.getId().getPath().equals(b.toString() + "_fence")){
+                    fenceItem(rb, b.BaseBlock);
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_fence_gate")){
+                    //fenceGateItem(rb, rb);
+                    evenSimplerBlockItem(rb);
+                }
             }
 
         }
@@ -102,13 +128,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
                 AddStainedSet(b.toString(), b, rb);
-                AddStainedSet(b + "_brick", b, rb);
-                AddStainedSet("gilded_" + b, b, rb);
-
-                if(rb.getId().getPath().equals("gilded_edge_" + b)){
-                    evenSimplerBlockItem(rb);
-                }
-
+                //AddStainedSet(b + "_brick", b, rb);
+                //AddStainedSet("gilded_" + b, b, rb);
             }
         }
     }
@@ -116,14 +137,29 @@ public class ModItemModelProvider extends ItemModelProvider {
         if(rb.getId().getPath().equals(name)){
             evenSimplerBlockItem(rb);
         }
-        if(rb.getId().getPath().equals(name + "_stairs")){
+
+        if(b.BlockTypes.contains("chiseled") && rb.getId().getPath().equals("chiseled_" + name)){
             evenSimplerBlockItem(rb);
         }
-        if(rb.getId().getPath().equals(name + "_slab")){
+
+        if(b.isGildedEdge() && rb.getId().getPath().equals(b.toString().replace("gilded_", "gilded_edge_"))){
             evenSimplerBlockItem(rb);
         }
-        if(rb.getId().getPath().equals(name + "_wall")){
+
+        if(b.BlockTypes.contains("stairs") && rb.getId().getPath().equals(name + "_stairs")){
+            evenSimplerBlockItem(rb);
+        }
+        if(b.BlockTypes.contains("slab") && rb.getId().getPath().equals(name + "_slab")){
+            evenSimplerBlockItem(rb);
+        }
+        if(b.BlockTypes.contains("wall") && rb.getId().getPath().equals(name + "_wall")){
             wallItem(rb);
+        }
+        if(b.BlockTypes.contains("fence") && rb.getId().getPath().equals(name + "_fence")){
+            fenceItem(rb, rb);
+        }
+        if(b.BlockTypes.contains("gate") && rb.getId().getPath().equals(name + "_fence_gate")){
+            evenSimplerBlockItem(rb);
         }
     }
 }

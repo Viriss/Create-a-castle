@@ -36,18 +36,40 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                     this.tag(BlockTags.WALLS)
                             .add(rb.get());
                 }
-            }
-        }
-        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
-            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
-                if(rb.getId().getPath().equals(b.toString() + "_wall")){
-                    this.tag(BlockTags.WALLS)
+                if(rb.getId().getPath().equals(b.toString() + "_fence")){
+                    this.tag(BlockTags.FENCES)
+                            .add(rb.get());
+                    this.tag(BlockTags.WOODEN_FENCES)
+                            .add(rb.get());
+                }
+                if(rb.getId().getPath().equals(b.toString() + "_fence_gate")){
+                    this.tag(BlockTags.FENCE_GATES)
                             .add(rb.get());
                 }
             }
         }
-        //fence
-        //fence gate
+        for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
+            for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
+                AddStainedSet(b.toString(), rb);
+            }
+        }
+    }
+
+    private void AddStainedSet(String name, RegistryObject<Block> rb){
+        if(rb.getId().getPath().equals(name + "_fence")){
+            this.tag(BlockTags.FENCES)
+                    .add(rb.get());
+            this.tag(BlockTags.WOODEN_FENCES)
+                    .add(rb.get());
+        }
+        if(rb.getId().getPath().equals(name + "_wall")){
+            this.tag(BlockTags.WALLS)
+                    .add(rb.get());
+        }
+        if(rb.getId().getPath().equals(name + "_fence_gate")){
+            this.tag(BlockTags.FENCE_GATES)
+                    .add(rb.get());
+        }
     }
 
 }

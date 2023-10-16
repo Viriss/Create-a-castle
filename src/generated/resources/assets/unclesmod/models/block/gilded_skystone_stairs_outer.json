@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/gilded_skystone",
-    "side": "unclesmod:block/gilded_skystone",
-    "top": "unclesmod:block/gilded_skystone"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "unclesmod:slate_brick"
-  },
-  "result": "unclesmod:slate_brick_stairs"
-}

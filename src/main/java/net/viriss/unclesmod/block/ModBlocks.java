@@ -1,20 +1,20 @@
 package net.viriss.unclesmod.block;
 
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.viriss.unclesmod.block.custom.*;
 import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
 import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
-import net.viriss.unclesmod.block.custom.GildedEdgeBlock;
-import net.viriss.unclesmod.block.custom.LanternFlowerCropBlock;
-import net.viriss.unclesmod.block.custom.LeagueStoneFrameBlock;
-import net.viriss.unclesmod.block.custom.LeagueStoneKeyBlock;
 import net.viriss.unclesmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -25,6 +25,18 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> SMOKY_CALCITE = registerBlock("smoky_calcite",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.CALCITE)));
+
+    public static final RegistryObject<Block> BLUE_GLAZED_TERRACOTTA_DIAMOND_TILE = registerBlock("blue_glazed_terracotta_diamond_tile",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_GLAZED_TERRACOTTA)));
+    public static final RegistryObject<Block> BLUE_GLAZED_TERRACOTTA_CHEVRON_TILE = registerBlock("blue_glazed_terracotta_chevron_tile",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_GLAZED_TERRACOTTA)));
+    public static final RegistryObject<Block> BLACK_GLAZED_TERRACOTTA_DIAMOND_TILE = registerBlock("black_glazed_terracotta_diamond_tile",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_GLAZED_TERRACOTTA)));
+    public static final RegistryObject<Block> BLACK_GLAZED_TERRACOTTA_CHEVRON_TILE = registerBlock("black_glazed_terracotta_chevron_tile",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_GLAZED_TERRACOTTA)));
+
+
+
     public static final RegistryObject<Block> SLATE = registerBlock("slate",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
 
@@ -50,50 +62,90 @@ public class ModBlocks {
             () -> new LeagueStoneKeyBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(4f)));
 
-//    public static final RegistryObject<Block> GILDED_EDGE_LIFESTONE = registerBlock("gilded_edge_lifestone",
-//            () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-//                    .strength(4f)));
-
     public static final RegistryObject<Block> LEAGUE_STONE_FRAME = registerBlock("league_stone_frame",
             () -> new LeagueStoneFrameBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(4f)
 
             ));
 
+    public static final RegistryObject<Block> RAIN_FLOWER = registerBlock("rain_flower",
+            () -> new RainFlowerBlock(() -> MobEffects.LUCK, 0, BlockBehaviour.Properties.copy(Blocks.BLUE_ORCHID)
+                    .noCollission()
+                    .noCollission()));
+
+    public static final RegistryObject<Block> LANTERN_FLOWER = registerBlock("lantern_flower",
+            () -> new FlowerBlock(MobEffects.LUCK, 0, BlockBehaviour.Properties.copy(Blocks.RED_TULIP)
+                    .lightLevel((state) -> 15)
+                    .noCollission()
+                    .noCollission()));
+    public static final RegistryObject<Block> POTTED_LANTERN_FLOWER = BLOCKS.register("potted_lantern_flower",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), ModBlocks.LANTERN_FLOWER,
+                    BlockBehaviour.Properties.copy(Blocks.POTTED_RED_TULIP)
+                    .lightLevel((state) -> 15)
+                    .noOcclusion()));
     public static final RegistryObject<CropBlock> LANTERN_FLOWER_CROP = registerBlock("lantern_flower_crop",
                 () -> new LanternFlowerCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)
-                        .lightLevel((p_50886_) -> { return 9;})
-                        //.lightLevel(litBlockEmission(13))
+                        .lightLevel(state -> LanternLightLevel(state.getValue(LanternFlowerCropBlock.AGE)))
                         .noCollission()
                         .noCollission()));
+
+    public static Integer LanternLightLevel(Integer age) {
+        if (age < 4) { return 0; }
+        return (int)((Math.floor(age - 4) * 5) + 1);
+    }
 
     private static void AddStainedStoneBlocks() {
         for (StainedStoneBlockGenEnum b : StainedStoneBlockGenEnum.values()) {
             String name = b.toString();
             AddStainedSet(name, b);
-            AddStainedSet(name + "_brick", b);
-            AddStainedSet("gilded_" + name, b);
-
-            registerBlock("gilded_edge_" + name, () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(4f)));
         }
     }
     private static void AddStainedSet(String name, StainedStoneBlockGenEnum b) {
+        String blockTypes = b.BlockTypes;
         registerBlock(name, () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
-        if (b.isStairs()) {
+
+        if (b.isChiseled()) {
+            registerBlock("chiseled_" + name, () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(4f)));
+        }
+
+        if (b.isGildedEdge()) {
+            registerBlock(name.replace("gilded_", "gilded_edge_"), () -> new GildedEdgeBlock(BlockBehaviour.Properties.copy(Blocks.STONE).strength(4f)));
+        }
+
+        if (blockTypes.contains("stairs")) {
             registerBlock(name + "_stairs",
                     () -> new StairBlock(() -> Blocks.STONE_STAIRS.defaultBlockState(),
                             BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)));
         }
-        if (b.isSlab()) {
+        if (blockTypes.contains("slab")) {
             registerBlock(name + "_slab",
                     () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE_SLAB)));
         }
-        if (b.isWall()) {
+        if (blockTypes.contains("wall")) {
             registerBlock(name + "_wall",
                     () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
         }
+        if (blockTypes.contains("fence")) {
+            registerBlock(name + "_fence",
+                    () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_FENCE)));
+        }
+        if (blockTypes.contains("gate")) {
+            registerBlock(name + "_fence_gate",
+                    () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_FENCE_GATE),
+                            WoodType.BIRCH.fenceGateOpen(), WoodType.BIRCH.fenceGateClose()));
 
+        }
     }
+
+    public static Block getBlockByName(String name) {
+        for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()) {
+            if (rb.getId().getPath().equals(name.toLowerCase())) {
+                return rb.get();
+            }
+        }
+        return null;
+    }
+
 
     private static void AddExtendedVanillaBlocks(){
          for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
@@ -110,6 +162,13 @@ public class ModBlocks {
             if (b.isWall()) {
                 registerBlock(name + "_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(b.BaseBlock)));
             }
+            if (b.isFence()) {
+                registerBlock(name+"_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_FENCE)));
+            }
+             if (b.isGate()) {
+                 registerBlock(name+"_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_FENCE_GATE),
+                         WoodType.BIRCH.fenceGateOpen(), WoodType.BIRCH.fenceGateClose()));
+             }
         }
     }
 

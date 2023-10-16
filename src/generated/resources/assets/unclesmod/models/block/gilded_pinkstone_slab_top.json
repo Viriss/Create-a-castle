@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "unclesmod:block/gilded_pinkstone",
-    "side": "unclesmod:block/gilded_pinkstone",
-    "top": "unclesmod:block/gilded_pinkstone"
-  }
-}

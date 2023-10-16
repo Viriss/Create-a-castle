@@ -75,4 +75,10 @@ public enum ExtendedVanillaBlockGenEnum {
     public boolean isWall() {
         return (this.BlockTypes.equals("all") || this.BlockTypes.contains("wall"));
     }
+    public boolean isFence() {
+        return (this.BlockTypes.equals("all") || this.BlockTypes.contains("fence"));
+    }
+    public boolean isGate() {
+        return (this.BlockTypes.equals("all") || this.BlockTypes.contains("gate"));
+    }
 }
