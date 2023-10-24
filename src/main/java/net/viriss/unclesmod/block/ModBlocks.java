@@ -1,5 +1,6 @@
 package net.viriss.unclesmod.block;
 
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -67,6 +68,12 @@ public class ModBlocks {
                     BlockBehaviour.Properties.copy(Blocks.GOLD_BLOCK)
             ));
 
+    public static final RegistryObject<DropExperienceBlock> SLATE_ORE = registerBlock( "slate_ore",
+            () -> new DropExperienceBlock(
+                    BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK),
+                    UniformInt.of(4,7)
+            ));
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -79,4 +86,6 @@ public class ModBlocks {
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);
     }
+
+
 }

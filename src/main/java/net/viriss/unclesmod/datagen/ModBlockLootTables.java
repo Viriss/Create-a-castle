@@ -36,6 +36,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.RED_WOOL_STAIRS.get());
         this.dropSelf(ModBlocks.BLUE_WOOL_STAIRS.get());
         this.dropSelf(ModBlocks.GOLD_STAIRS.get());
+        this.dropOther(ModBlocks.SLATE_ORE.get(), ModBlocks.SLATE.get());
+
 
     }
 
