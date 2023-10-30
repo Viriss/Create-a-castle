@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gilded_ashstone_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unclesmod:gilded_ashstone_wall"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unclesmod:gilded_ashstone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gilded_ashstone_wall",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unclesmod:gilded_ashstone_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

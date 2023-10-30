@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:gilded_bloodstone"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:gilded_bloodstone_wall"
+  },
+  "show_notification": true
+}

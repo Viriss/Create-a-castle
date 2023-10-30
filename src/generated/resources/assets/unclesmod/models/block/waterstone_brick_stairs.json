@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "unclesmod:block/waterstone_brick",
+    "side": "unclesmod:block/waterstone_brick",
+    "top": "unclesmod:block/waterstone_brick"
+  }
+}

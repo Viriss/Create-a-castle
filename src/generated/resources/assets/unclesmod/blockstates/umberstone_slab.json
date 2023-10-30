@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/umberstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/umberstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/umberstone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:gilded_warmstone"
+    }
+  },
+  "pattern": [
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:gilded_warmstone_slab"
+  },
+  "show_notification": true
+}

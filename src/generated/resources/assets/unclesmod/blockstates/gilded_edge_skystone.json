@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "unclesmod:block/gilded_edge_skystone",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "unclesmod:block/gilded_edge_skystone"
+    },
+    "facing=south": {
+      "model": "unclesmod:block/gilded_edge_skystone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "unclesmod:block/gilded_edge_skystone",
+      "y": 270
+    }
+  }
+}

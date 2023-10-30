@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/gilded_ashstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/gilded_ashstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/gilded_ashstone_slab_top"
+    }
+  }
+}

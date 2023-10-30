@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "minecraft:green_dye"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sds",
+    "sss"
+  ],
+  "result": {
+    "count": 8,
+    "item": "unclesmod:gardenstone"
+  },
+  "show_notification": true
+}

@@ -5,10 +5,10 @@
         "model": "unclesmod:block/slate_brick", "weight": 50
       },
       {
-        "model": "unclesmod:block/slate_brick_1", "weight": 100
+        "model": "unclesmod:block/slate_brick_1", "weight": 50
       },
       {
-        "model": "unclesmod:block/slate_brick_2", "weight": 100
+        "model": "unclesmod:block/slate_brick_2", "weight": 70
       },
       {
         "model": "unclesmod:block/slate_brick_3", "weight": 100

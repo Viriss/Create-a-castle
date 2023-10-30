@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/slate_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/slate"
+    },
+    "type=top": {
+      "model": "unclesmod:block/slate_slab_top"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:mossy_sunstone_brick"
+    }
+  },
+  "pattern": [
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:mossy_sunstone_brick_slab"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:gilded_timestone"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:gilded_timestone_wall"
+  },
+  "show_notification": true
+}

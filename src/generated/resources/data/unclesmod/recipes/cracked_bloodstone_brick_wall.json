@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "unclesmod:cracked_bloodstone_brick"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sss"
+  ],
+  "result": {
+    "count": 6,
+    "item": "unclesmod:cracked_bloodstone_brick_wall"
+  },
+  "show_notification": true
+}

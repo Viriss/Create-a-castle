@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "d": {
+      "item": "minecraft:magenta_dye"
+    },
+    "s": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "sss",
+    "sds",
+    "sss"
+  ],
+  "result": {
+    "count": 8,
+    "item": "unclesmod:mossy_rosestone_brick"
+  },
+  "show_notification": true
+}
