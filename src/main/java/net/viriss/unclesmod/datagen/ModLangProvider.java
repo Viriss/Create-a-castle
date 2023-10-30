@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.registries.RegistryObject;
 import net.viriss.unclesmod.UnclesMod;
+import net.viriss.unclesmod.enums.LangGenEnum;
 import net.viriss.unclesmod.item.ModItems;
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -16,10 +17,18 @@ public class ModLangProvider extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        this.add("creativetab.unclesmod_tab", "Uncles Mod Tab");
+        //this.add("creativetab.unclesmod_tab", "Uncles Mod Tab");
 
         for(RegistryObject<Item> ri : ModItems.ITEMS.getEntries()){
-           this.addItem(ri, WordUtils.capitalize(ri.getId().getPath().replace('_', ' ')));
+            switch(ri.getId().getPath()) {
+                case "test":
+                    this.addItem(ri, "Test");
+                default:
+                    this.addItem(ri, WordUtils.capitalize(ri.getId().getPath().replace('_', ' ')));
+            }
+        }
+        for(LangGenEnum l : LangGenEnum.values()) {
+            this.add(l.toString(), l.en_us);
         }
 /*
         for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){

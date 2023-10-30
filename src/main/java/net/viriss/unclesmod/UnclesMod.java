@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BellRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -18,6 +19,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.viriss.unclesmod.block.ModBlocks;
+import net.viriss.unclesmod.entity.ModEntities;
+import net.viriss.unclesmod.entity.client.GathererGolemRenderer;
 import net.viriss.unclesmod.item.ModCreativeModTabs;
 import net.viriss.unclesmod.item.ModItems;
 import org.slf4j.Logger;
@@ -41,6 +44,7 @@ public class UnclesMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
@@ -86,6 +90,7 @@ public class UnclesMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntities.GATHERER_GOLEM.get(), GathererGolemRenderer::new);
 
         }
     }

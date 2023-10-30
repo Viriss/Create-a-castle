@@ -37,6 +37,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.SLATE_BRICK_STAIRS);
         wallItem(ModBlocks.SLATE_BRICK_WALL, ModBlocks.SLATE_BRICK);
 
+        withExistingParent(ModItems.GATHERER_GOLEM_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
+
         AddExtendedVanillaBlockItems();
         AddStainedStoneBlockItems();
     }

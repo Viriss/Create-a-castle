@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unclesmod:warmstone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warmstone_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unclesmod:warmstone_wall"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warmstone_wall",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unclesmod:warmstone_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

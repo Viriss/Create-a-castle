@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gilded_royalstone_wall": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unclesmod:gilded_royalstone_wall"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "unclesmod:gilded_royalstone_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gilded_royalstone_wall",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "unclesmod:gilded_royalstone_wall"
+    ]
+  },
+  "sends_telemetry_event": false
+}

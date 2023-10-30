@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/mossy_skystone_brick_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/mossy_skystone_brick"
+    },
+    "type=top": {
+      "model": "unclesmod:block/mossy_skystone_brick_slab_top"
+    }
+  }
+}

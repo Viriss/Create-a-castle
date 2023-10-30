@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/sunstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/sunstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/sunstone_slab_top"
+    }
+  }
+}

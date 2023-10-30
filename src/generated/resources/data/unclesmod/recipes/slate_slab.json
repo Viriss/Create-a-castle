@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "unclesmod:slate"
+  },
+  "result": "unclesmod:slate_slab"
+}

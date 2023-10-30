@@ -14,6 +14,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import net.viriss.unclesmod.block.custom.KeneticLampBlock;
 import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
 import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
@@ -30,6 +31,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItemKenetic(ModBlocks.CREATE_LAMP);
+
         blockWithItem(ModBlocks.SMOKY_CALCITE);
         blockWithItem(ModBlocks.BLUE_GLAZED_TERRACOTTA_DIAMOND_TILE);
         blockWithItem(ModBlocks.BLUE_GLAZED_TERRACOTTA_CHEVRON_TILE);
@@ -116,6 +119,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
+        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+
+    }
+    private void blockWithItemKenetic(RegistryObject<KeneticLampBlock> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
     }

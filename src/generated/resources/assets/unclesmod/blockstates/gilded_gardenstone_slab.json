@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/gilded_gardenstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/gilded_gardenstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/gilded_gardenstone_slab_top"
+    }
+  }
+}

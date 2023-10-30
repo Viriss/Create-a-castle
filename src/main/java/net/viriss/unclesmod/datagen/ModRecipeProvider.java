@@ -53,14 +53,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                             .pattern("s  ")
                             .pattern("ss ")
                             .pattern("sss")
-                            .define('s', rb.get())
+                            .define('s', ModBlocks.getBlockByName(b.toString()))
                             .unlockedBy(getHasName(rb.get()), has(rb.get()))
                             .save(pWriter);
                 }
                 if(rb.getId().getPath().equals(b.toString() + "_slab")){
                     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 6)
                             .pattern("sss")
-                            .define('s', rb.get())
+                            .define('s', ModBlocks.getBlockByName(b.toString()))
                             .unlockedBy(getHasName(rb.get()), has(rb.get()))
                             .save(pWriter);
                 }
@@ -68,7 +68,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, rb.get(), 6)
                             .pattern("sss")
                             .pattern("sss")
-                            .define('s', rb.get())
+                            .define('s', ModBlocks.getBlockByName(b.toString()))
                             .unlockedBy(getHasName(rb.get()), has(rb.get()))
                             .save(pWriter);
                 }

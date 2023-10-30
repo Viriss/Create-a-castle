@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "unclesmod:block/purestone_brick",
+    "side": "unclesmod:block/purestone_brick",
+    "top": "unclesmod:block/purestone_brick"
+  }
+}

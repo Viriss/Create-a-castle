@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "unclesmod:block/gilded_edge_waterstone",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "unclesmod:block/gilded_edge_waterstone"
+    },
+    "facing=south": {
+      "model": "unclesmod:block/gilded_edge_waterstone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "unclesmod:block/gilded_edge_waterstone",
+      "y": 270
+    }
+  }
+}

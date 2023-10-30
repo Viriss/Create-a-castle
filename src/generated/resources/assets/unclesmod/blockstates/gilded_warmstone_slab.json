@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/gilded_warmstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/gilded_warmstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/gilded_warmstone_slab_top"
+    }
+  }
+}

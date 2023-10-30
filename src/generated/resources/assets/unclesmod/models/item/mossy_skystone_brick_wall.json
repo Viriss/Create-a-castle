@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "unclesmod:block/mossy_skystone_brick"
+  }
+}

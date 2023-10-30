@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "unclesmod:block/gilded_blushstone_slab"
+    },
+    "type=double": {
+      "model": "unclesmod:block/gilded_blushstone"
+    },
+    "type=top": {
+      "model": "unclesmod:block/gilded_blushstone_slab_top"
+    }
+  }
+}

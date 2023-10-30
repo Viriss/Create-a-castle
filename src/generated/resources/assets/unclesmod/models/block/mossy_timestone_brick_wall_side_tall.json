@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "unclesmod:block/mossy_timestone_brick"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "unclesmod:block/gilded_edge_timestone",
+    "down": "unclesmod:block/gilded_edge_timestone",
+    "east": "unclesmod:block/gilded_edge_timestone_left",
+    "north": "unclesmod:block/gilded_edge_timestone_right",
+    "particle": "unclesmod:block/gilded_edge_timestone",
+    "south": "unclesmod:block/gilded_edge_timestone_right",
+    "up": "unclesmod:block/gilded_edge_timestone",
+    "west": "unclesmod:block/gilded_edge_timestone_left"
+  }
+}

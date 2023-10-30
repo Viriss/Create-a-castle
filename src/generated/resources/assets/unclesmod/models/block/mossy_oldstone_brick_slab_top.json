@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "unclesmod:block/mossy_oldstone_brick",
+    "side": "unclesmod:block/mossy_oldstone_brick",
+    "top": "unclesmod:block/mossy_oldstone_brick"
+  }
+}

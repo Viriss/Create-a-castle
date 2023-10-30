@@ -50,6 +50,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.LANTERN_FLOWER_CROP.get(), createCropDrops(ModBlocks.LANTERN_FLOWER_CROP.get(), ModItems.LANTERN_FLOWER_SEED.get(),
                 ModItems.LANTERN_FLOWER_SEED.get(), lootitemcondition$builder));
 
+        this.dropSelf(ModBlocks.CREATE_LAMP.get());
+
         AddExtendedVanillaBlocks();
         AddStainedStoneBlocks();
     }
