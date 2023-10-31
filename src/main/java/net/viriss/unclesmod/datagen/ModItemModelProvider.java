@@ -4,6 +4,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -30,6 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItemFromBlock(ModBlocks.RAIN_FLOWER);
 
         evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_KEY);
+        evenSimplerDropExpBlockItem(ModBlocks.SLATE_ORE);
         evenSimplerBlockItem(ModBlocks.SLATE_SLAB);
         evenSimplerBlockItem(ModBlocks.SLATE_STAIRS);
         wallItem(ModBlocks.SLATE_WALL, ModBlocks.SLATE);
@@ -54,6 +56,10 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(UnclesMod.MOD_ID,"item/" +item.getId().getPath()));
     }
     public void evenSimplerBlockItem(RegistryObject<Block> block) {
+        this.withExistingParent(UnclesMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
+                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
+    }
+    public void evenSimplerDropExpBlockItem(RegistryObject<DropExperienceBlock> block) {
         this.withExistingParent(UnclesMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
                 modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }

@@ -1,5 +1,6 @@
 package net.viriss.unclesmod.datagen;
 
+import com.simibubi.create.content.materials.ExperienceBlock;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -45,6 +46,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ResourceLocation(UnclesMod.MOD_ID, "block/" + ModBlocks.LEAGUE_STONE_KEY.getId().getPath() + "_top")
                 );
         blockWithItem(ModBlocks.SLATE);
+        expBlockWithItem(ModBlocks.SLATE_ORE);
         wallBlock((WallBlock) ModBlocks.SLATE_WALL.get(), blockTexture(ModBlocks.SLATE.get()));
         slabBlock((SlabBlock) ModBlocks.SLATE_SLAB.get(), blockTexture(ModBlocks.SLATE.get()), blockTexture(ModBlocks.SLATE.get()));
         stairsBlock((StairBlock) ModBlocks.SLATE_STAIRS.get(), blockTexture(ModBlocks.SLATE.get()));
@@ -119,6 +121,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
+        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+
+    }
+    private void expBlockWithItem(RegistryObject<DropExperienceBlock> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
     }

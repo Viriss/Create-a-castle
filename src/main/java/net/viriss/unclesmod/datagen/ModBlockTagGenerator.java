@@ -29,6 +29,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.LEAGUE_STONE_FRAME.get(),
                      ModBlocks.LEAGUE_STONE_KEY.get(),
+                     ModBlocks.SLATE.get(),
                      ModBlocks.SLATE_ORE.get());
 
         for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {

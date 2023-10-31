@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "features": "unclesmod:overworld_slate",
+  "biomes": "#minecraft:is_overworld",
+  "step": "underground_ores"
+}
