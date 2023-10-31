@@ -28,7 +28,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.LEAGUE_STONE_FRAME.get(),
-                     ModBlocks.LEAGUE_STONE_KEY.get());
+                     ModBlocks.LEAGUE_STONE_KEY.get(),
+                     ModBlocks.SLATE_ORE.get());
 
         for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
@@ -55,6 +56,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         }
     }
 
+
+        //fence
+        //fence gate
     private void AddStainedSet(String name, RegistryObject<Block> rb){
         if(rb.getId().getPath().equals(name + "_fence")){
             this.tag(BlockTags.FENCES)

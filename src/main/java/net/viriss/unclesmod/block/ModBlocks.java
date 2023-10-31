@@ -1,5 +1,6 @@
 package net.viriss.unclesmod.block;
 
+import net.minecraft.util.valueproviders.UniformInt;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.foundation.block.IBE;
@@ -88,6 +89,12 @@ public class ModBlocks {
             () -> new RainFlowerBlock(() -> MobEffects.LUCK, 0, BlockBehaviour.Properties.copy(Blocks.BLUE_ORCHID)
                     .noCollission()
                     .noCollission()));
+
+    public static final RegistryObject<DropExperienceBlock> SLATE_ORE = registerBlock( "slate_ore",
+            () -> new DropExperienceBlock(
+                    BlockBehaviour.Properties.copy(Blocks.COAL_BLOCK),
+                    UniformInt.of(4,7)
+            ));
 
     public static final RegistryObject<Block> LANTERN_FLOWER = registerBlock("lantern_flower",
             () -> new FlowerBlock(MobEffects.LUCK, 0, BlockBehaviour.Properties.copy(Blocks.RED_TULIP)
@@ -222,4 +229,6 @@ public class ModBlocks {
 
         BLOCKS.register(eventBus);
     }
+
+
 }

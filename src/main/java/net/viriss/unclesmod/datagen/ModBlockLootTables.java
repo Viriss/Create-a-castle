@@ -41,6 +41,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LEAGUE_STONE_FRAME.get());
         this.dropSelf(ModBlocks.LEAGUE_STONE_KEY.get());
 
+        this.dropSelf(ModBlocks.RED_WOOL_STAIRS.get());
+        this.dropSelf(ModBlocks.BLUE_WOOL_STAIRS.get());
+        this.dropSelf(ModBlocks.GOLD_STAIRS.get());
+        this.dropOther(ModBlocks.SLATE_ORE.get(), ModBlocks.SLATE.get());
+
+
         this.dropSelf(ModBlocks.RAIN_FLOWER.get());
         this.dropSelf(ModBlocks.LANTERN_FLOWER.get());
         this.add(ModBlocks.POTTED_LANTERN_FLOWER.get(), createPotFlowerItemTable(ModBlocks.LANTERN_FLOWER.get()));
