@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/cracked_oldstone_brick",
-    "side": "unclesmod:block/cracked_oldstone_brick",
-    "top": "unclesmod:block/cracked_oldstone_brick"
-  }
-}

@@ -28,6 +28,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BLUE_GLAZED_TERRACOTTA_CHEVRON_TILE.get());
         this.dropSelf(ModBlocks.BLACK_GLAZED_TERRACOTTA_DIAMOND_TILE.get());
         this.dropSelf(ModBlocks.BLACK_GLAZED_TERRACOTTA_CHEVRON_TILE.get());
+
+        this.dropSelf(ModBlocks.ARROWSLIT.get());
+
         this.dropSelf(ModBlocks.SLATE.get());
         this.dropSelf(ModBlocks.SLATE_STAIRS.get());
         this.add(ModBlocks.SLATE_SLAB.get(),
@@ -45,6 +48,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //this.dropSelf(ModBlocks.BLUE_WOOL_STAIRS.get());
         //this.dropSelf(ModBlocks.GOLD_STAIRS.get());
         this.dropOther(ModBlocks.SLATE_ORE.get(), ModBlocks.SLATE_ORE.get());
+
+        this.dropSelf(ModBlocks.YEW_LOG.get());
+        this.dropSelf(ModBlocks.YEW_LEAVES.get());
+        this.dropSelf(ModBlocks.YEW_WOOD.get());
+        this.dropSelf(ModBlocks.YEW_PLANKS.get());
+        this.dropSelf(ModBlocks.STRIPPED_YEW_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_YEW_WOOD.get());
 
 
         this.dropSelf(ModBlocks.RAIN_FLOWER.get());

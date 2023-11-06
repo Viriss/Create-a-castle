@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/blushstone",
-    "side": "unclesmod:block/blushstone",
-    "top": "unclesmod:block/blushstone"
-  }
-}

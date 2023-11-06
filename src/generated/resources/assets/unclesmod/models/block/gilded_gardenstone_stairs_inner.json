@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/gilded_gardenstone",
-    "side": "unclesmod:block/gilded_gardenstone",
-    "top": "unclesmod:block/gilded_gardenstone"
-  }
-}

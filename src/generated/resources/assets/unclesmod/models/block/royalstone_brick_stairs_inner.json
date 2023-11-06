@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/royalstone_brick",
-    "side": "unclesmod:block/royalstone_brick",
-    "top": "unclesmod:block/royalstone_brick"
-  }
-}

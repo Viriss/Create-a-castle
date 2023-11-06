@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "unclesmod:block/arrowslit",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "unclesmod:block/arrowslit"
+    },
+    "facing=south": {
+      "model": "unclesmod:block/arrowslit",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "unclesmod:block/arrowslit",
+      "y": 270
+    }
+  }
+}

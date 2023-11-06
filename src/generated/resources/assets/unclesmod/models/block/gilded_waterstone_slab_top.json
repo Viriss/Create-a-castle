@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "unclesmod:block/gilded_waterstone",
-    "side": "unclesmod:block/gilded_waterstone",
-    "top": "unclesmod:block/gilded_waterstone"
-  }
-}

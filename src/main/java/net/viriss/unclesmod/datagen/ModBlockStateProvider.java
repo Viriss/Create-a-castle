@@ -1,9 +1,11 @@
 package net.viriss.unclesmod.datagen;
 
 import com.simibubi.create.content.materials.ExperienceBlock;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.network.protocol.game.ClientboundMoveEntityPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,6 +16,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.viriss.unclesmod.block.custom.KeneticLampBlock;
 import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
@@ -45,6 +48,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 new ResourceLocation(UnclesMod.MOD_ID, "block/" + ModBlocks.LEAGUE_STONE_KEY.getId().getPath() + "_bottom"),
                 new ResourceLocation(UnclesMod.MOD_ID, "block/" + ModBlocks.LEAGUE_STONE_KEY.getId().getPath() + "_top")
                 );
+
+        //blockWithItem(ModBlocks.ARROWSLIT);
+
         blockWithItem(ModBlocks.SLATE);
         expBlockWithItem(ModBlocks.SLATE_ORE);
         wallBlock((WallBlock) ModBlocks.SLATE_WALL.get(), blockTexture(ModBlocks.SLATE.get()));
@@ -102,7 +108,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
  */
 
+        logBlock((RotatedPillarBlock) ModBlocks.YEW_LOG.get());
+        axisBlock((RotatedPillarBlock) ModBlocks.YEW_WOOD.get(), blockTexture(ModBlocks.YEW_LOG.get()), blockTexture(ModBlocks.YEW_LOG.get()));
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_YEW_LOG.get(), blockTexture(ModBlocks.STRIPPED_YEW_LOG.get()),
+                new ResourceLocation(UnclesMod.MOD_ID, "block/stripped_yew_log_top"));
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_YEW_WOOD.get(), blockTexture(ModBlocks.STRIPPED_YEW_LOG.get()),
+                blockTexture(ModBlocks.STRIPPED_YEW_LOG.get()));
 
+
+        blockItem(ModBlocks.YEW_LOG);
+        blockItem(ModBlocks.YEW_WOOD);
+        blockItem(ModBlocks.STRIPPED_YEW_LOG);
+        blockItem(ModBlocks.STRIPPED_YEW_WOOD);
+        blockWithItem(ModBlocks.YEW_PLANKS);
+        leavesBlock(ModBlocks.YEW_LEAVES);
     }
 
     public void makeLanternFlowerCrop(CropBlock block, String modelName, String textureName) {
@@ -120,9 +139,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models;
     }
 
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),
+                        new ResourceLocation("minecraft:block/leaves"),
+                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+    private void blockItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile(UnclesMod.MOD_ID +
+                ":block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
     }
     private void expBlockWithItem(RegistryObject<DropExperienceBlock> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));

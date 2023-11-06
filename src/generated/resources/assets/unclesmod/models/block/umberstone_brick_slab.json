@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "unclesmod:block/umberstone_brick",
-    "side": "unclesmod:block/umberstone_brick",
-    "top": "unclesmod:block/umberstone_brick"
-  }
-}

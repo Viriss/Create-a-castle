@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "unclesmod:block/mossy_lifestone_brick",
-    "side": "unclesmod:block/mossy_lifestone_brick",
-    "top": "unclesmod:block/mossy_lifestone_brick"
-  }
-}

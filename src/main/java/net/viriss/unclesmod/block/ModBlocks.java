@@ -1,5 +1,7 @@
 package net.viriss.unclesmod.block;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.kinetics.base.IRotate;
@@ -12,6 +14,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -20,6 +23,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -53,6 +57,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> BLACK_GLAZED_TERRACOTTA_CHEVRON_TILE = registerBlock("black_glazed_terracotta_chevron_tile",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BLUE_GLAZED_TERRACOTTA)));
 
+
+    public static final RegistryObject<Block> ARROWSLIT = registerBlock("arrowslit",
+            () -> new ArrowslitBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .noOcclusion()
+            ));
 
     public static final RegistryObject<Block> SLATE = registerBlock("slate",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
@@ -111,6 +120,54 @@ public class ModBlocks {
                     .lightLevel(state -> LanternLightLevel(state.getValue(LanternFlowerCropBlock.AGE)))
                     .noCollission()
                     .noCollission()));
+
+    public static final RegistryObject<Block> YEW_LOG = registerBlock("yew_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3)));
+    public static final RegistryObject<Block> YEW_WOOD = registerBlock("yew_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(3)));
+    public static final RegistryObject<Block> STRIPPED_YEW_LOG = registerBlock("stripped_yew_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).strength(3)));
+    public static final RegistryObject<Block> STRIPPED_YEW_WOOD = registerBlock("stripped_yew_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD).strength(3)));
+
+
+    public static final RegistryObject<Block> YEW_PLANKS = registerBlock("yew_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+
+            });
+    public static final RegistryObject<Block> YEW_LEAVES = registerBlock("yew_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+
+            });
+
     /*
         public static final RegistryObject<ShaftBlock> SHAFT = REGISTRATE.block("shaft", ShaftBlock::new)
                 .initialProperties(SharedProperties::stone)

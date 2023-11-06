@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "unclesmod:block/league_stone_key_bottom",
-    "side": "unclesmod:block/league_stone_key_side",
-    "top": "unclesmod:block/league_stone_key_top"
-  }
-}
