@@ -1,18 +1,66 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,up=true,down=true": {
       "model": "unclesmod:block/arrowslit",
       "y": 90
     },
-    "facing=north": {
+    "facing=north,up=true,down=true": {
       "model": "unclesmod:block/arrowslit"
     },
-    "facing=south": {
+    "facing=south,up=true,down=true": {
       "model": "unclesmod:block/arrowslit",
       "y": 180
     },
-    "facing=west": {
+    "facing=west,up=true,down=true": {
       "model": "unclesmod:block/arrowslit",
+      "y": 270
+    },
+
+    "facing=east,up=false,down=true": {
+      "model": "unclesmod:block/arrowslit_down",
+      "y": 90
+    },
+    "facing=north,up=false,down=true": {
+      "model": "unclesmod:block/arrowslit_down"
+    },
+    "facing=south,up=false,down=true": {
+      "model": "unclesmod:block/arrowslit_down",
+      "y": 180
+    },
+    "facing=west,up=false,down=true": {
+      "model": "unclesmod:block/arrowslit_down",
+      "y": 270
+    },
+
+    "facing=east,up=false,down=false": {
+      "model": "unclesmod:block/arrowslit_empty",
+      "y": 90
+    },
+    "facing=north,up=false,down=false": {
+      "model": "unclesmod:block/arrowslit_empty"
+    },
+    "facing=south,up=false,down=false": {
+      "model": "unclesmod:block/arrowslit_empty",
+      "y": 180
+    },
+    "facing=west,up=false,down=false": {
+      "model": "unclesmod:block/arrowslit_empty",
+      "y": 270
+    },
+
+    "facing=east,up=true,down=false": {
+      "model": "unclesmod:block/arrowslit_up",
+      "y": 90
+    },
+    "facing=north,up=true,down=false": {
+      "model": "unclesmod:block/arrowslit_up"
+    },
+    "facing=south,up=true,down=false": {
+      "model": "unclesmod:block/arrowslit_up",
+      "y": 180
+    },
+    "facing=west,up=true,down=false": {
+      "model": "unclesmod:block/arrowslit_up",
       "y": 270
     }
   }

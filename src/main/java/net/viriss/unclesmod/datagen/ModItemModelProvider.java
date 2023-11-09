@@ -30,6 +30,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItemFromBlock(ModBlocks.RAIN_FLOWER);
 
+        evenSimplerBlockItem(ModBlocks.ARROWSLIT);
+        //arrowslitItem(ModBlocks.ARROWSLIT);
+
         evenSimplerBlockItem(ModBlocks.LEAGUE_STONE_KEY);
         evenSimplerDropExpBlockItem(ModBlocks.SLATE_ORE);
         evenSimplerBlockItem(ModBlocks.SLATE_SLAB);
@@ -67,9 +70,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
                 .texture("texture",  new ResourceLocation(UnclesMod.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath().replace("_fence", "")));
     }
-    public void zz_fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
-        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), modLoc("block/fence_inventory"))
-                .texture("texture", new ResourceLocation(UnclesMod.MOD_ID, "block/"+ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+    public void arrowslitItem(RegistryObject<Block> block) {
+        this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), modLoc("block/arrowslit"))
+                .texture("texture", new ResourceLocation(UnclesMod.MOD_ID, "block/"+block.getId().getPath()));
     }
     public void fenceItem(RegistryObject<Block> block, Block baseBlock) {
         String name = baseBlock.getDescriptionId();
