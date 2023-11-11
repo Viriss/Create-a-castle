@@ -29,14 +29,14 @@ public class ArrowslitBlock extends HorizontalDirectionalBlock {
         return FACING;
     }
 
-    public static final VoxelShape SHAPE_NORTH_LEFT = Block.box(0, 0, 14, 6, 16, 16);
-    public static final VoxelShape SHAPE_NORTH_RIGHT = Block.box(10, 0, 14, 16, 16, 16);
-    public static final VoxelShape SHAPE_EAST_LEFT = Block.box(0, 0, 0, 6, 16, 2);
-    public static final VoxelShape SHAPE_EAST_RIGHT = Block.box(10, 0, 0, 16, 16, 2);
-    public static final VoxelShape SHAPE_SOUTH_LEFT = Block.box(0, 0, 0, 6, 16, 2);
-    public static final VoxelShape SHAPE_SOUTH_RIGHT = Block.box(10, 0, 0, 16, 16, 2);
-    public static final VoxelShape SHAPE_WEST_LEFT = Block.box(0, 0, 0, 6, 16, 2);
-    public static final VoxelShape SHAPE_WEST_RIGHT = Block.box(10, 0, 0, 16, 16, 2);
+    public static final VoxelShape SHAPE_NORTH_LEFT = Block.box(0, 0, 15, 5, 16, 16);
+    public static final VoxelShape SHAPE_NORTH_RIGHT = Block.box(11, 0, 15, 16, 16, 16);
+    public static final VoxelShape SHAPE_WEST_LEFT = Block.box(15, 0, 0, 16, 16, 5);
+    public static final VoxelShape SHAPE_WEST_RIGHT = Block.box(15, 0, 11, 16, 16, 16);
+    public static final VoxelShape SHAPE_SOUTH_LEFT = Block.box(0, 0, 0, 5, 16, 1);
+    public static final VoxelShape SHAPE_SOUTH_RIGHT = Block.box(11, 0, 0, 16, 16, 1);
+    public static final VoxelShape SHAPE_EAST_LEFT = Block.box(0, 0, 11, 1, 16, 16);
+    public static final VoxelShape SHAPE_EAST_RIGHT = Block.box(0, 0, 0, 1, 16, 5);
 
     public ArrowslitBlock(Properties p_54120_) {
         super(p_54120_);
@@ -52,7 +52,12 @@ public class ArrowslitBlock extends HorizontalDirectionalBlock {
         if (pState.getValue(FACING).equals(Direction.SOUTH)){
             shape = Shapes.or(SHAPE_SOUTH_LEFT, SHAPE_SOUTH_RIGHT);
         }
-
+        if (pState.getValue(FACING).equals(Direction.EAST)){
+            shape = Shapes.or(SHAPE_EAST_LEFT, SHAPE_EAST_RIGHT);
+        }
+        if (pState.getValue(FACING).equals(Direction.WEST)){
+            shape = Shapes.or(SHAPE_WEST_LEFT, SHAPE_WEST_RIGHT);
+        }
         return shape;
     }
 
@@ -71,12 +76,23 @@ public class ArrowslitBlock extends HorizontalDirectionalBlock {
 
         //BlockPos neighbourPos = pContext.getClickedPos().offset(0,1,0); // Offset the block's position by 1 block in the current direction
         //IBlockState neighbourState = world.getBlockState(neighbourPos); // Get the IBlockState at the neighboring position
-        Block neighbourBlock = levelreader.getBlockState(pContext.getClickedPos().above()).getBlock(); // neighbourState.getBlock(); // Get the IBlockState's Block
-        bs = bs.setValue(UP, (neighbourBlock != ModBlocks.ARROWSLIT.get()));
+        BlockState nBS = levelreader.getBlockState(pContext.getClickedPos().above());
+        boolean showLedge = true;
+        if (nBS.getBlock() == ModBlocks.ARROWSLIT.get()) {
+            if (nBS.getValue(FACING).equals(pContext.getHorizontalDirection().getOpposite())) {
+                showLedge = false;
+            }
+        }
+        bs = bs.setValue(UP, showLedge);
 
-        neighbourBlock = levelreader.getBlockState(pContext.getClickedPos().below()).getBlock(); // neighbourState.getBlock(); // Get the IBlockState's Block
-        bs = bs.setValue(DOWN, (neighbourBlock != ModBlocks.ARROWSLIT.get()));
-
+        nBS = levelreader.getBlockState(pContext.getClickedPos().below());
+        showLedge = true;
+        if (nBS.getBlock() == ModBlocks.ARROWSLIT.get()) {
+            if (nBS.getValue(FACING).equals(pContext.getHorizontalDirection().getOpposite())) {
+                showLedge = false;
+            }
+        }
+        bs = bs.setValue(DOWN, showLedge);
 
         return bs;
     }
@@ -85,30 +101,33 @@ public class ArrowslitBlock extends HorizontalDirectionalBlock {
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
         //System.out.println(pDirection);
         if (pDirection.equals(Direction.DOWN)) {
-            return pState.setValue(DOWN, !pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get()));
+            if (pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get())) {
+                if (pNeighborState.getValue(FACING).equals(pState.getValue(FACING))) {
+                    return pState.setValue(DOWN, !pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get()));
+                }
+                else {
+                    return pState.setValue(DOWN, true);
+                }
+            }
+            else {
+                return pState.setValue(DOWN, true);
+            }
         }
         if (pDirection.equals(Direction.UP)) {
-            return pState.setValue(UP, !pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get()));
+            if (pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get())) {
+                if (pNeighborState.getValue(FACING).equals(pState.getValue(FACING))) {
+                    return pState.setValue(UP, !pLevel.getBlockState(pNeighborPos).is(ModBlocks.ARROWSLIT.get()));
+                }
+                else {
+                    return pState.setValue(UP, true);
+                }
+            }
+            else {
+                return pState.setValue(UP, true);
+            }
         }
 
         return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
-    }
-
-    private void checkBlockInDirection(LevelAccessor pLevel, BlockPos neighbor, Direction dir) {
-        System.out.println("check block " + dir);
-        if (pLevel.getBlockState(neighbor).is(ModBlocks.ARROWSLIT.get())) {
-            if (dir == Direction.UP) {
-                //if (pLevel.getBlockState(neighbor).getValue(DOWN)) {
-                    System.out.println("found arrowslit");
-                    pLevel.setBlock(neighbor, pLevel.getBlockState(neighbor).setValue(DOWN, false), 3);
-                //}
-            }
-            if (dir == Direction.DOWN) {
-                //if (pLevel.getBlockState(neighbor).getValue(UP)) {
-                    pLevel.setBlock(neighbor, pLevel.getBlockState(neighbor).setValue(UP, false), 3);
-                //}
-            }
-        }
     }
 
     @Override
