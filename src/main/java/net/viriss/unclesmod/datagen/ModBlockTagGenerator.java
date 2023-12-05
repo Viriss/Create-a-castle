@@ -32,6 +32,17 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                      ModBlocks.SLATE.get(),
                      ModBlocks.SLATE_ORE.get());
 
+        this.tag(BlockTags.LEAVES)
+                .add(ModBlocks.YEW_LEAVES.get(),
+                     ModBlocks.POPLAR_LEAVES.get());
+
+        this.tag(BlockTags.LOGS)
+                .add(ModBlocks.POPLAR_LOG.get(),
+                     ModBlocks.YEW_LOG.get());
+
+        this.tag(BlockTags.SAPLINGS)
+                .add(ModBlocks.POPLAR_SAPLING.get());
+
         for (ExtendedVanillaBlockGenEnum b : ExtendedVanillaBlockGenEnum.values()) {
             for(RegistryObject<Block> rb : ModBlocks.BLOCKS.getEntries()){
                 if(rb.getId().getPath().equals(b.toString() + "_wall")){

@@ -122,6 +122,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.STRIPPED_YEW_WOOD);
         blockWithItem(ModBlocks.YEW_PLANKS);
         leavesBlock(ModBlocks.YEW_LEAVES);
+
+        blockItem(ModBlocks.POPLAR_LOG);
+        logBlock((RotatedPillarBlock) ModBlocks.POPLAR_LOG.get());
+        blockWithItem(ModBlocks.POPLAR_LEAVES);
+        saplingBlock(ModBlocks.POPLAR_SAPLING);
     }
 
     public void makeLanternFlowerCrop(CropBlock block, String modelName, String textureName) {
@@ -144,6 +149,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),
                         new ResourceLocation("minecraft:block/leaves"),
                         "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(),
+                        blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){

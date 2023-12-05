@@ -35,6 +35,7 @@ import net.viriss.unclesmod.enums.ExtendedVanillaBlockGenEnum;
 import net.viriss.unclesmod.enums.StainedStoneBlockGenEnum;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.item.ModItems;
+import net.viriss.unclesmod.worldgen.tree.PoplarTreeGrower;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
@@ -165,6 +166,24 @@ public class ModBlocks {
                 public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return 30;
                 }
+
+            });
+
+    public static final RegistryObject<Block> POPLAR_LOG = registerBlock("poplar_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+    public static final RegistryObject<Block> POPLAR_SAPLING = registerBlock("poplar_sapling",
+            () -> new SaplingBlock(new PoplarTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    public static final RegistryObject<Block> POPLAR_LEAVES = registerBlock("poplar_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) { return true; }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {return 60; }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {return 30; }
 
             });
 

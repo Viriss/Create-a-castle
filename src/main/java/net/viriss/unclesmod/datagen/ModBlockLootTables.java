@@ -57,6 +57,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_YEW_WOOD.get());
 
 
+        this.add(ModBlocks.POPLAR_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.POPLAR_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.dropSelf(ModBlocks.POPLAR_LOG.get());
+        this.dropSelf(ModBlocks.POPLAR_SAPLING.get());
+
+
         this.dropSelf(ModBlocks.RAIN_FLOWER.get());
         this.dropSelf(ModBlocks.LANTERN_FLOWER.get());
         this.add(ModBlocks.POTTED_LANTERN_FLOWER.get(), createPotFlowerItemTable(ModBlocks.LANTERN_FLOWER.get()));

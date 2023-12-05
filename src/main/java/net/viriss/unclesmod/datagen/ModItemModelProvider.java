@@ -42,10 +42,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.SLATE_BRICK_STAIRS);
         wallItem(ModBlocks.SLATE_BRICK_WALL, ModBlocks.SLATE_BRICK);
 
+        saplingItem(ModBlocks.POPLAR_SAPLING);
+
         withExistingParent(ModItems.GATHERER_GOLEM_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
 
         AddExtendedVanillaBlockItems();
         AddStainedStoneBlockItems();
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(UnclesMod.MOD_ID, "block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item){
