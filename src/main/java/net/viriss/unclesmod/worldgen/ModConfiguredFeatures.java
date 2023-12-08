@@ -21,6 +21,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.common.Tags;
 import net.viriss.unclesmod.UnclesMod;
 import net.viriss.unclesmod.block.ModBlocks;
+import net.viriss.unclesmod.worldgen.tree.custom.PoplarFoliagePlacer;
+import net.viriss.unclesmod.worldgen.tree.custom.PoplarTrunkPlacer;
 
 import java.util.List;
 
@@ -51,11 +53,13 @@ public class ModConfiguredFeatures {
         register(context, POPLAR_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.POPLAR_LOG.get()),
                 //new StraightTrunkPlacer(7,1,1),
-                new StraightTrunkPlacer(5,4,3),
+                //new StraightTrunkPlacer(5,4,3),
+                new PoplarTrunkPlacer(7,0,0),
 
                 BlockStateProvider.simple(ModBlocks.POPLAR_LEAVES.get()),
                 //new BlobFoliagePlacer(ConstantInt.of(1), ConstantInt.of(1), 8),
-                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 7),
+                //new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 7),
+                new PoplarFoliagePlacer(ConstantInt.of(3), ConstantInt.of(0), 7),
 
                 //new TwoLayersFeatureSize(0,0,1)).build()
                 new TwoLayersFeatureSize(1,0,2)).build()

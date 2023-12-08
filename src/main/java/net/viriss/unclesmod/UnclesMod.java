@@ -3,7 +3,6 @@ package net.viriss.unclesmod;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BellRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -23,6 +22,8 @@ import net.viriss.unclesmod.entity.ModEntities;
 import net.viriss.unclesmod.entity.client.GathererGolemRenderer;
 import net.viriss.unclesmod.item.ModCreativeModTabs;
 import net.viriss.unclesmod.item.ModItems;
+import net.viriss.unclesmod.worldgen.tree.ModFoliagePlacers;
+import net.viriss.unclesmod.worldgen.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -45,6 +46,8 @@ public class UnclesMod
         ModBlocks.register(modEventBus);
 
         ModEntities.register(modEventBus);
+        ModTrunkPlacerTypes.register(modEventBus);
+        ModFoliagePlacers.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
